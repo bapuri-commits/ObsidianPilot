@@ -74,7 +74,7 @@ Workspace Paths에 ObsidianPilot만 보이면 단독 모드.
 이 프로젝트는 The Record 볼트를 **대상으로 조작하는 도구**이다.
 개발 중 The Record 볼트의 구조를 참조해야 할 때:
 - 워크스페이스 모드: `The Record/` 직접 접근
-- 단독 모드: `config.yaml`의 `vault_path`로 접근
+- 단독 모드: 환경변수 `VAULT_PATH` 또는 `config.yaml`의 `vault.path`로 접근
 
 ## 하지 않는 것
 

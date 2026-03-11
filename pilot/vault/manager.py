@@ -24,8 +24,11 @@ class VaultManager:
     def exists(self, relative_path: str) -> bool:
         return (self.root / relative_path).exists()
 
-    def list_files(self, directory: str, pattern: str = "*.md") -> list[Path]:
+    def list_files(self, directory: str, pattern: str = "*.md") -> list[str]:
+        """디렉토리 내 파일 목록을 볼트 상대 경로로 반환."""
         dir_path = self.root / directory
         if not dir_path.exists():
             return []
-        return sorted(dir_path.rglob(pattern))
+        return sorted(
+            str(p.relative_to(self.root)) for p in dir_path.rglob(pattern)
+        )

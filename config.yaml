@@ -1,4 +1,5 @@
 vault:
+  # 기본 경로. 환경변수 VAULT_PATH로 머신별 오버라이드 가능.
   path: "G:\\CS_Study\\The Record"
   templates_dir: "Templates"
   inbox_dir: "0_Inbox"
