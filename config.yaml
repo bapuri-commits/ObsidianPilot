@@ -1,0 +1,21 @@
+vault:
+  path: "G:\\CS_Study\\The Record"
+  templates_dir: "Templates"
+  inbox_dir: "0_Inbox"
+  daily_dir: "1_Daily"
+  projects_dir: "2_Projects"
+  areas_dir: "3_Areas"
+
+daily:
+  subfolder_format: "YYYY-MM"
+  filename_format: "YYYY-MM-DD"
+  template: "daily"
+
+llm:
+  provider: "anthropic"
+  model: "claude-sonnet-4-20250514"
+
+search:
+  db_path: ".chromadb"
+  chunk_size: 500
+  chunk_overlap: 50

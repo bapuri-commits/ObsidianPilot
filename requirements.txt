@@ -1,0 +1,9 @@
+typer[all]
+python-frontmatter
+markdown-it-py
+pyyaml
+python-dotenv
+anthropic
+chromadb
+openai
+rich

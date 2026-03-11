@@ -1,0 +1,39 @@
+---
+description: ObsidianPilot 프로젝트 규칙 — 항상 적용
+alwaysApply: true
+---
+
+# ObsidianPilot 프로젝트 규칙
+
+## 프로젝트 개요
+
+- LLM 기반 Obsidian 볼트 관리 도구 (Python 3.12)
+- CLI(Typer)로 시작 → MCP 서버로 확장
+- 대상 볼트: The Record (PARA 기반)
+- 3-Layer: CLI → Services → Vault
+
+## 필수 원칙
+
+- **한국어 응답**: 모든 대화와 커밋 메시지는 한국어
+- **타입 힌팅 필수**: 모든 함수의 파라미터와 반환값에 타입 명시
+- **CLI에서 Vault 직접 접근 금지**: 반드시 Service를 통해 접근
+- **Service에서 직접 파일 I/O 금지**: 반드시 Vault 레이어를 통해 접근
+- **볼트 구조 하드코딩 금지**: 경로와 규칙은 `config.yaml`에서 로드
+
+## 레이어 규칙
+
+```
+CLI (cli.py)
+ └─→ Services (services/*.py)   비즈니스 로직
+      └─→ Vault (vault/*.py)    파일 접근, 경로 해석
+```
+
+- CLI는 입출력 포맷팅과 사용자 인터페이스만 담당
+- Services는 LLM 호출, 데이터 가공 등 핵심 로직 담당
+- Vault는 파일시스템 접근과 Obsidian 규칙 캡슐화
+
+## 참고 문서
+
+- 아키텍처: `docs/architecture.md`
+- 기능 명세: `docs/features.md`
+- Phase 진행: `docs/phases/`
